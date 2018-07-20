@@ -197,17 +197,8 @@ sum(Missing)</code></pre>
 <ul>
 <li>Next I went through the dataframe and replaced each NA value with the mean for that interval:</li>
 </ul>
-<pre class="r"><code>library(dplyr)</code></pre>
-<pre><code>## Warning: package 'dplyr' was built under R version 3.5.1</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>replace_with_mean &lt;- function(x){
+<pre class="r"><code>library(dplyr)
+replace_with_mean &lt;- function(x){
         replace(x, is.na(x), mean(x, na.rm = TRUE))
 }
 Imputed_Dataset&lt;- as.data.frame(ActivityData %&gt;% group_by(interval) %&gt;% 
